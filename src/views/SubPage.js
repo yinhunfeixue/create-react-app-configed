@@ -22,7 +22,6 @@ class SubPage extends Component {
 					<li>在src/views中创建子页面，并在 src/config/RouteConfig.js 中配置页面的路由</li>
 					<li>npm i 安装依赖包</li>
 					<li>npm start 运行，npm run build打包</li>
-					<li>删除默认页面——SubPage.js、SubPage.less</li>
 				</ol>
 			</div>
 		);
