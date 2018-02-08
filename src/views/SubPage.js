@@ -20,8 +20,9 @@ class SubPage extends Component {
 					<li>修改 src/App.js 搭建页面框架</li>
 					<li>修改 src/config/UrlConfig.js 修改开发和生产模式（也允许更多模式）中使用到的链接</li>
 					<li>在src/views中创建子页面，并在 src/config/RouteConfig.js 中配置页面的路由</li>
-					<li>npm i 安装依赖包</li>
-					<li>npm start 运行，npm run build打包</li>
+					<li>安装依赖包：npm i 或 cnpm i</li>
+					<li>运行：npm start</li>
+					<li>打包：npm run build</li>
 				</ol>
 			</div>
 		);

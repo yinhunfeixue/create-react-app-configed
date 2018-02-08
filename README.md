@@ -6,9 +6,5 @@
 
 ## 使用方法
 ### 先通过git获取此项目，按如下步骤操作
-1. 修改 src/App.js 搭建页面框架
-2. 修改 src/config/UrlConfig.js 修改开发和生产模式（也允许更多模式）中使用到的链接
-3. 在src/views中创建子页面，并在 src/config/RouteConfig.js 中配置页面的路由
-4. 安装依赖包：npm i  /  cnpm i
-5. 运行： npm start 
-6. 打包：npm run build
+1. 安装依赖包：npm i 或 cnpm i
+2. 运行项目：npm start，按页面提示操作
