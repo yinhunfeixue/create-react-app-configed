@@ -59,7 +59,7 @@ src/
 模块建议放在src/pages目录下，无特别要求，普通的react组件即可
 
 ## 路由配置
-路由配置位于`src/config/RouterConfig.jsx`中，格式有两种
+路由配置位于`src/config/RouterConfig.jsx`中，格式有两种
 
 **代码分割为独立文件的模块**
 ```
