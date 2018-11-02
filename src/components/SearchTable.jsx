@@ -11,6 +11,7 @@ let formChanged = false;
  * + 网络请求过程中，显示加载动画
  * + 手动刷新时：外部刷新数据时（例如新增或删除数据后），页码不会被重置
  * + 搜索条件变化后，会自动把页码重置为1
+ * + 重置时，自动刷新一次数据
  * 
  * ### 必传属性
  * + formItems--用于搜索的form表单项组件类型（是类型，不是实例）,  formItems中的组件需要用getFieldDecorator包裹
@@ -107,6 +108,7 @@ class SearchTable extends Component {
   resetForm = () => {
     this.props.form.resetFields();
     formChanged = true;
+    this.searchQuest();
   }
 
   render() {
