@@ -106,6 +106,7 @@ class SearchTable extends Component {
 
   resetForm = () => {
     this.props.form.resetFields();
+    formChanged = true;
   }
 
   render() {
