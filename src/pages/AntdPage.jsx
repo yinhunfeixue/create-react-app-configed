@@ -16,14 +16,10 @@ class AntdPage extends Component {
     }
   }
 
-  componentDidMount() {
-
-  }
-
   request() {
     if (this.state.key) {
       this.setState({ loading: true });
-      Axios.get(`/services?wd=${this.state.key}`).then(
+      Axios.get(`/baiduApi?wd=${this.state.key}`).then(
         (response) => {
           this.setState({ searchResult: response.data, loading: false });
         }

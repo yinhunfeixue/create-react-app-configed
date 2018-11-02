@@ -38,8 +38,11 @@ class App extends Component {
             <Menu.Item key={UrlUtil.getUrl('page1', { id: 2 })}>
               <a href={UrlUtil.getUrl('page1', { id: 2 })}> <Icon type="appstore" />简单页面,参数：id=2</a>
             </Menu.Item>
-            <Menu.Item key="#/pageAntd">
+            <Menu.Item key={UrlUtil.getUrl('pageAntd')}>
               <a href={UrlUtil.getUrl('pageAntd')}>有antd组件的页面</a>
+            </Menu.Item>
+            <Menu.Item key={UrlUtil.getUrl('searchTableDemo')}>
+              <a href={UrlUtil.getUrl('searchTableDemo')}>SearchTable示例</a>
             </Menu.Item>
           </Menu>
         </div>

@@ -1,11 +1,15 @@
 const proxy = require('http-proxy-middleware');
 
 const config = {
-  '/services': {
+  '/baiduApi': {
     target: 'http://www.baidu.com/',
     changeOrigin: true,
-    pathRewrite: { "^/services": "/s" },
+    pathRewrite: { "^/baiduApi": "/s" },
   },
+  "/services": {
+    "target": "http://172.16.66.75/",
+    "changeOrigin": true
+  }
 };
 
 module.exports = (app) => {
