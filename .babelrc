@@ -7,9 +7,19 @@
       "import",
       {
         "libraryName": "antd",
-        "libraryDirectory": "es",
+        "libraryDirectory": "lib",
         "style": "css"
-      }
+      },
+      "antd"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile",
+        "libraryDirectory": "lib",
+        "style": "css"
+      },
+      "antd-mobile"
     ],
     [
       "@babel/plugin-proposal-decorators",

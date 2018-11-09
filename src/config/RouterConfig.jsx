@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import async from '../components/Async';
-import AntdPage from '../pages/AntdPage';
-import SearchTableDemo from '../pages/SearchTableDemo';
 
 /**
  * 路由配置文件
@@ -21,8 +19,9 @@ class RouterConfig extends Component {
               );
             }} />
             <Route path="/page1" exact component={async(() => import('../pages/Page1'))} />
-            <Route path="/pageAntd" exact component={AntdPage} />
-            <Route path="/searchTableDemo" exact component={SearchTableDemo} />
+            <Route path="/pageAntd" exact component={async(() => import('../pages/AntdPage'))} />
+            <Route path="/searchTableDemo" exact component={async(() => import('../pages//SearchTableDemo'))} />
+            <Route path="/antdMobile" exact component={async(() => import('../pages/AntdMobile'))} />
           </Switch>
         </HashRouter>
       </div>

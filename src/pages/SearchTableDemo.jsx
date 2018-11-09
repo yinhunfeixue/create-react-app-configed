@@ -4,7 +4,8 @@ import FormItem from 'antd/lib/form/FormItem';
 import { Input, Button } from 'antd';
 
 /**
- * DEMO
+ * 搜索表格的示例代码
+ * 
  */
 class SearchTableDemo extends Component {
   render() {
@@ -56,7 +57,7 @@ class SearchFrom extends Component {
           }
         </FormItem>
         <FormItem>
-          <Button type="primary" onClick={() => {
+          <Button style={{ marginRight: 10 }} type="primary" onClick={() => {
             this.props.refresh();
           }}>查询</Button>
           <Button onClick={() => {

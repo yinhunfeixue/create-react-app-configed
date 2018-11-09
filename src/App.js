@@ -45,9 +45,15 @@ class App extends Component {
               <Menu.Item key={UrlUtil.getUrl('searchTableDemo')}>
                 <a href={UrlUtil.getUrl('searchTableDemo')}>SearchTable示例</a>
               </Menu.Item>
+              <Menu.Item key={UrlUtil.getUrl('antdMobile')}>
+                <a href={UrlUtil.getUrl('antdMobile')}>antd mobile</a>
+              </Menu.Item>
             </Menu>
           </div>
-          <RouterConfig />
+          <div className={styles.body}>
+            <RouterConfig />
+          </div>
+
         </div>
       </LocaleProvider >
     );

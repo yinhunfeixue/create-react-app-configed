@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, message, Spin } from 'antd';
+import { Button, Form, Input, message, Spin, Menu, Icon } from 'antd';
 import FormItem from 'antd/lib/form/FormItem';
 import Axios from 'axios';
 
@@ -31,6 +31,11 @@ class AntdPage extends Component {
     const { getFieldDecorator, getFieldValue } = this.props.form;
     return (
       <Spin spinning={this.state.loading}>
+        <Menu>
+          <Menu.Item key="#/">
+            <a href="#/"> <Icon type="mail" />首页</a>
+          </Menu.Item>
+        </Menu>
         <Form layout="inline">
           <FormItem>
             {
