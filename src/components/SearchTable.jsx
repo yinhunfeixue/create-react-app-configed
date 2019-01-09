@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { Form, Table, message, Spin } from 'antd';
+import {Form, Spin, Table, message} from 'antd';
+import React, {Component} from 'react';
+
 import Axios from 'axios';
 
 let formChanged = false;
@@ -24,12 +25,15 @@ let formChanged = false;
  * + pageSize--每页显示的条数，默认为10
  * + tableProps--要单独给table设置的props属性，默认为null
  * + formProps--要给表单传入的props，默认为null
+ * + selectedAble--表格是否可选（每行前面是否有单选框)，默认为false
  * 
  * ### formItems组件内部
  * + 可通过执行this.props.refresh()方法，主动刷新表格，例如在表单中有搜索按钮，当点击搜索按钮时，可刷新数据
  * + 可通过this.props.reset()重置表单
  * + 可通过this.props.form获取表单的引用
  * + 可通过this.props.table获取Table组件的引用
+ * + 通过this.props.selectedRowKeys获取表格中选中的项id列表
+ * + 通过this.props.selectedRow获取表格中选中的项列表
  */
 @Form.create({
   onValuesChange: (a, b, c) => {
@@ -55,6 +59,7 @@ class SearchTable extends Component {
       dataSource: [],
       //数据总条数
       total: 0,
+      //已选中的所有行id
     };
   }
 
@@ -71,7 +76,7 @@ class SearchTable extends Component {
   searchQuest = () => {
     this.props.form.validateFields((error, values) => {
       if (!error) {
-        this.setState({ loading: true, current: formChanged ? 1 : this.state.current }, () => {
+        this.setState({loading: true, current: formChanged ? 1 : this.state.current}, () => {
           formChanged = false;
           const requestData = this.props.searchCreater(values, this.props.pageSize, this.state.current);
           Axios.request(requestData)
@@ -95,9 +100,9 @@ class SearchTable extends Component {
                   this.props.errorHandler(error);
                 }
                 else {
-                  message.error(error);
+                  message.error(error.toString());
                 }
-                this.setState({ loading: false });
+                this.setState({loading: false});
               }
             );
         });
@@ -120,10 +125,19 @@ class SearchTable extends Component {
             reset={this.resetForm}
             table={this.refs.table}
             form={this.props.form}
+            selectedRowKeys={this.state.selectedRowKeys}
+            selectedRows={this.state.selectedRows}
             {...this.props.formProps} />
         </Form>
         <Table
           ref="table"
+          rowSelection={
+            this.props.selectedAble ? {
+              onChange: (selectedRowKeys, selectedRows) => {
+                this.setState({selectedRowKeys, selectedRows});
+              }
+            } : null
+          }
           rowKey={this.props.rowKey || "id"}
           columns={this.props.columns}
           dataSource={this.state.dataSource}
@@ -135,7 +149,7 @@ class SearchTable extends Component {
                 total: this.state.total,
                 showQuickJumper: true,
                 onChange: (page) => {
-                  this.setState({ current: page }, this.searchQuest);
+                  this.setState({current: page}, this.searchQuest);
                 },
               },
               this.props.tableProps ? this.props.tableProps.pagination : null
